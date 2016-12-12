@@ -15,8 +15,8 @@ namespace Model
         public string Number { get; set; }
         public string Picture { get; set; }
         public string Description { get; set; }
-        public long Longitude { get; set; }
-        public long Latitude { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
         public Place Place { get; set; }
         public User User { get; set; }
         [Timestamp]

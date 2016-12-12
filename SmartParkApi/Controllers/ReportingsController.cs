@@ -20,7 +20,7 @@ namespace SmartParkApi.Controllers
         // GET: api/Reportings
         public IQueryable<Reporting> GetReportings()
         {
-            return db.Reportings;
+            return db.Reportings.Include(u => u.User).Include(a => a.Announce);
         }
 
         // GET: api/Reportings/5

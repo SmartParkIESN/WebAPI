@@ -20,7 +20,7 @@ namespace SmartParkApi.Controllers
         // GET: api/Parkings
         public IQueryable<Parking> GetParkings()
         {
-            return db.Parkings;
+            return db.Parkings.Include(p => p.Place).Include(u => u.User);
         }
 
         // GET: api/Parkings/5

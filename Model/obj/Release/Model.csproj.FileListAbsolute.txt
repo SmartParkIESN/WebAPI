@@ -10,3 +10,15 @@ C:\Users\Lucas\Desktop\web api\RestAPI\Model\bin\Release\fr\EntityFramework.SqlS
 C:\Users\Lucas\Desktop\web api\RestAPI\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
 C:\Users\Lucas\Desktop\web api\RestAPI\Model\obj\Release\Model.dll
 C:\Users\Lucas\Desktop\web api\RestAPI\Model\obj\Release\Model.pdb
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\Model.dll.config
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\Model.dll
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\Model.pdb
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\EntityFramework.dll
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\EntityFramework.xml
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\fr\EntityFramework.resources.dll
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\bin\Release\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\obj\Release\Model.dll
+C:\Users\Lucas\Desktop\web api\WebApi\WebAPI\Model\obj\Release\Model.pdb
