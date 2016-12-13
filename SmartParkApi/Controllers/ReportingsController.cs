@@ -20,7 +20,7 @@ namespace SmartParkApi.Controllers
         // GET: api/Reportings
         public IQueryable<Reporting> GetReportings()
         {
-            return db.Reportings.Include(u => u.User).Include(a => a.Announce);
+            return db.Reportings;
         }
 
         // GET: api/Reportings/5
@@ -45,7 +45,7 @@ namespace SmartParkApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != reporting.Id)
+            if (id != reporting.ReportingId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace SmartParkApi.Controllers
             db.Reportings.Add(reporting);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = reporting.Id }, reporting);
+            return CreatedAtRoute("DefaultApi", new { id = reporting.ReportingId }, reporting);
         }
 
         // DELETE: api/Reportings/5
@@ -113,7 +113,7 @@ namespace SmartParkApi.Controllers
 
         private bool ReportingExists(long id)
         {
-            return db.Reportings.Count(e => e.Id == id) > 0;
+            return db.Reportings.Count(e => e.ReportingId == id) > 0;
         }
     }
 }

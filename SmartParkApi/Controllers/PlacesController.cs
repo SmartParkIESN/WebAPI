@@ -45,7 +45,7 @@ namespace SmartParkApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != place.Id)
+            if (id != place.PlaceId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace SmartParkApi.Controllers
             db.Places.Add(place);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = place.Id }, place);
+            return CreatedAtRoute("DefaultApi", new { id = place.PlaceId }, place);
         }
 
         // DELETE: api/Places/5
@@ -113,7 +113,7 @@ namespace SmartParkApi.Controllers
 
         private bool PlaceExists(long id)
         {
-            return db.Places.Count(e => e.Id == id) > 0;
+            return db.Places.Count(e => e.PlaceId == id) > 0;
         }
     }
 }

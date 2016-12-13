@@ -9,11 +9,17 @@ namespace Model
 {
     public class User
     {
-        public long Id { get; set; }
+        [Key]
+        public long UserId { get; set; }
+        [Required]
         public string Pseudo { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
-        public string PhoneNumber { get; set; }      
+        public string PhoneNumber { get; set; }
+        public ICollection<Parking> Parkings { get; set; }
+
         [Timestamp]
         public byte[] RowVersion { get; set; }
     }

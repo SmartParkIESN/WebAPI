@@ -20,7 +20,7 @@ namespace SmartParkApi.Controllers
         // GET: api/Parkings
         public IQueryable<Parking> GetParkings()
         {
-            return db.Parkings.Include(p => p.Place).Include(u => u.User);
+            return db.Parkings;
         }
 
         // GET: api/Parkings/5
@@ -45,7 +45,7 @@ namespace SmartParkApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != parking.Id)
+            if (id != parking.ParkingId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace SmartParkApi.Controllers
             db.Parkings.Add(parking);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = parking.Id }, parking);
+            return CreatedAtRoute("DefaultApi", new { id = parking.ParkingId }, parking);
         }
 
         // DELETE: api/Parkings/5
@@ -113,7 +113,7 @@ namespace SmartParkApi.Controllers
 
         private bool ParkingExists(long id)
         {
-            return db.Parkings.Count(e => e.Id == id) > 0;
+            return db.Parkings.Count(e => e.ParkingId == id) > 0;
         }
     }
 }

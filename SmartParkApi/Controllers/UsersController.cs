@@ -58,7 +58,7 @@ namespace SmartParkApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != user.Id)
+            if (id != user.UserId)
             {
                 return BadRequest();
             }
@@ -96,7 +96,7 @@ namespace SmartParkApi.Controllers
             db.Users.Add(user);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            return CreatedAtRoute("DefaultApi", new { id = user.UserId }, user);
         }
 
         // DELETE: api/Users/5
@@ -126,7 +126,7 @@ namespace SmartParkApi.Controllers
 
         private bool UserExists(long id)
         {
-            return db.Users.Count(e => e.Id == id) > 0;
+            return db.Users.Count(e => e.UserId == id) > 0;
         }
     }
 }

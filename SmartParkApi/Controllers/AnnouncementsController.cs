@@ -20,7 +20,7 @@ namespace SmartParkApi.Controllers
         // GET: api/Announcements
         public IQueryable<Announcement> GetAnnoucements()
         {
-            return db.Annoucements.Include(u => u.User).Include(p => p.Parking).Include(pl => pl.Parking.Place);
+            return db.Annoucements;
         }
 
         // GET: api/Announcements/5
@@ -45,7 +45,7 @@ namespace SmartParkApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != announcement.Id)
+            if (id != announcement.AnnouncementId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace SmartParkApi.Controllers
             db.Annoucements.Add(announcement);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = announcement.Id }, announcement);
+            return CreatedAtRoute("DefaultApi", new { id = announcement.AnnouncementId }, announcement);
         }
 
         // DELETE: api/Announcements/5
@@ -113,7 +113,7 @@ namespace SmartParkApi.Controllers
 
         private bool AnnouncementExists(long id)
         {
-            return db.Annoucements.Count(e => e.Id == id) > 0;
+            return db.Annoucements.Count(e => e.AnnouncementId == id) > 0;
         }
     }
 }
