@@ -60,9 +60,7 @@ namespace Model.Tests
                 Longitude = 154,
                 Latitude = 87,
                 PlaceId = place.PlaceId,
-                UserId = user.UserId,
-                Place = place,
-                User = user
+                UserId = user.UserId
             };
             context.Parkings.Add(parking);
 
@@ -77,9 +75,7 @@ namespace Model.Tests
                 Longitude = 154,
                 Latitude = 87,
                 PlaceId = place.PlaceId,
-                UserId = user2.UserId,
-                Place = place,
-                User = user2
+                UserId = user2.UserId
             };
             context.Parkings.Add(parking2);
 
@@ -92,8 +88,7 @@ namespace Model.Tests
                 DateFrom = DateTime.Today.Date,
                 DateTo = DateTime.Today.Date,
                 Rented = false,
-                ParkingId = parking.ParkingId,
-                Parking = parking          
+                ParkingId = parking.ParkingId     
             };
             context.Annoucements.Add(announcement);
 
@@ -102,8 +97,7 @@ namespace Model.Tests
             {
                 ReportingId = 1,
                 Date = DateTime.Today,
-                AnnouncementId = announcement.AnnouncementId,
-                Announce = announcement
+                AnnouncementId = announcement.AnnouncementId
                 
             };
             context.Reportings.Add(reporting);

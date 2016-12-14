@@ -18,6 +18,7 @@ namespace Model
         [Required]
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
+        public ICollection<Parking> Parkings { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }

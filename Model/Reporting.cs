@@ -14,10 +14,7 @@ namespace Model
         public long ReportingId { get; set; }
         [Required]
         public DateTime Date { get; set; }
-        [Required]
         public long AnnouncementId { get; set; }
-        [Required]
-        public Announcement Announce { get; set; }
         [Timestamp]
         public byte[] RowVersion { get; set; }
     }

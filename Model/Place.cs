@@ -15,6 +15,7 @@ namespace Model
         public string Name { get; set; }
         [Timestamp]
         public byte[] RowVersion { get; set; }
+        public ICollection<Parking> Parkings { get; set; }
 
     }
 }

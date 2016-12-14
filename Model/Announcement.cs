@@ -22,11 +22,8 @@ namespace Model
         public DateTime DateTo { get; set; }
         [Required]
         public Boolean Rented { get; set; }
-        [Required]
         public long ParkingId { get; set; }
-        [Required]
-        public Parking Parking { get; set; }
-
+        public ICollection<Reporting> Reportings { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }

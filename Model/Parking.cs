@@ -25,14 +25,9 @@ namespace Model
         public double Longitude { get; set; }
         [Required]
         public double Latitude { get; set; }
-        [Required]
         public long PlaceId { get; set; }
-        [Required]
         public long UserId { get; set; }
-        [Required]
-        public Place Place { get; set; }
-        [Required]
-        public User User { get; set; }
+        public ICollection<Announcement> Announcements { get; set; }
         [Timestamp]
         public byte[] RowVersion { get; set; }       
     }

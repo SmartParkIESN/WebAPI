@@ -23,11 +23,11 @@ namespace SmartParkApi.Controllers
             return db.Users;
         }
 
-        // GET: api/Users/5
+        // GET: api/Users?pseudo=PSEUDO
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> GetUserId(long id)
+        public async Task<IHttpActionResult> GetUserPseudo(String pseudo)
         {
-            User user = await db.Users.FindAsync(id);
+            User user = await db.Users.FirstAsync(p => p.Pseudo == pseudo);
             if (user == null)
             {
                 return NotFound();
@@ -36,11 +36,11 @@ namespace SmartParkApi.Controllers
             return Ok(user);
         }
 
-        // GET: api/Users?pseudo=PSEUDO
+        // GET: api/Users/5
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> GetUserPseudo(String pseudo)
+        public async Task<IHttpActionResult> GetUser(long id)
         {
-            User user = await db.Users.FirstAsync(p => p.Pseudo == pseudo);
+            User user = await db.Users.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
