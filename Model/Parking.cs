@@ -33,7 +33,6 @@ namespace Model
         public Place Place { get; set; }
         [Required]
         public User User { get; set; }
-        public ICollection<Announcement> Announcements { get; set; }
         [Timestamp]
         public byte[] RowVersion { get; set; }       
     }

@@ -13,7 +13,6 @@ namespace Model
         public long PlaceId { get; set; }
         [Required]
         public string Name { get; set; }
-        public ICollection<Parking> Parkings { get; set; }
         [Timestamp]
         public byte[] RowVersion { get; set; }
 

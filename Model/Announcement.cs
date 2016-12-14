@@ -27,7 +27,6 @@ namespace Model
         [Required]
         public Parking Parking { get; set; }
 
-        public ICollection<Reporting> Reportings { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
