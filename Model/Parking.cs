@@ -11,7 +11,7 @@ namespace Model
     public class Parking
     {
         [Key]
-        public long ParkingId { get; set; }
+        public int ParkingId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -25,10 +25,7 @@ namespace Model
         public double Longitude { get; set; }
         [Required]
         public double Latitude { get; set; }
-        public long PlaceId { get; set; }
-        public long UserId { get; set; }
-        public ICollection<Announcement> Announcements { get; set; }
-        [Timestamp]
-        public byte[] RowVersion { get; set; }       
+        public int PlaceId { get; set; }
+        public int UserId { get; set; }   
     }
 }

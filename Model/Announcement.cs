@@ -11,7 +11,7 @@ namespace Model
     public class Announcement
     {
         [Key]
-        public long AnnouncementId { get; set; }
+        public int AnnouncementId { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
@@ -22,10 +22,6 @@ namespace Model
         public DateTime DateTo { get; set; }
         [Required]
         public Boolean Rented { get; set; }
-        public long ParkingId { get; set; }
-        public ICollection<Reporting> Reportings { get; set; }
-
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
+        public int ParkingId { get; set; }
     }
 }

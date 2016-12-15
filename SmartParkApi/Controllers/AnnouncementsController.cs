@@ -25,7 +25,7 @@ namespace SmartParkApi.Controllers
 
         // GET: api/Announcements/5
         [ResponseType(typeof(Announcement))]
-        public async Task<IHttpActionResult> GetAnnouncement(long id)
+        public async Task<IHttpActionResult> GetAnnouncement(int id)
         {
             Announcement announcement = await db.Annoucements.FindAsync(id);
             if (announcement == null)
@@ -38,7 +38,7 @@ namespace SmartParkApi.Controllers
 
         // PUT: api/Announcements/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAnnouncement(long id, Announcement announcement)
+        public async Task<IHttpActionResult> PutAnnouncement(int id, Announcement announcement)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SmartParkApi.Controllers
 
         // DELETE: api/Announcements/5
         [ResponseType(typeof(Announcement))]
-        public async Task<IHttpActionResult> DeleteAnnouncement(long id)
+        public async Task<IHttpActionResult> DeleteAnnouncement(int id)
         {
             Announcement announcement = await db.Annoucements.FindAsync(id);
             if (announcement == null)
@@ -111,7 +111,7 @@ namespace SmartParkApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool AnnouncementExists(long id)
+        private bool AnnouncementExists(int id)
         {
             return db.Annoucements.Count(e => e.AnnouncementId == id) > 0;
         }

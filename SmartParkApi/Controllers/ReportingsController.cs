@@ -25,7 +25,7 @@ namespace SmartParkApi.Controllers
 
         // GET: api/Reportings/5
         [ResponseType(typeof(Reporting))]
-        public async Task<IHttpActionResult> GetReporting(long id)
+        public async Task<IHttpActionResult> GetReporting(int id)
         {
             Reporting reporting = await db.Reportings.FindAsync(id);
             if (reporting == null)
@@ -38,7 +38,7 @@ namespace SmartParkApi.Controllers
 
         // PUT: api/Reportings/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutReporting(long id, Reporting reporting)
+        public async Task<IHttpActionResult> PutReporting(int id, Reporting reporting)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SmartParkApi.Controllers
 
         // DELETE: api/Reportings/5
         [ResponseType(typeof(Reporting))]
-        public async Task<IHttpActionResult> DeleteReporting(long id)
+        public async Task<IHttpActionResult> DeleteReporting(int id)
         {
             Reporting reporting = await db.Reportings.FindAsync(id);
             if (reporting == null)
@@ -111,7 +111,7 @@ namespace SmartParkApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ReportingExists(long id)
+        private bool ReportingExists(int id)
         {
             return db.Reportings.Count(e => e.ReportingId == id) > 0;
         }

@@ -25,7 +25,7 @@ namespace SmartParkApi.Controllers
 
         // GET: api/Places/5
         [ResponseType(typeof(Place))]
-        public async Task<IHttpActionResult> GetPlace(long id)
+        public async Task<IHttpActionResult> GetPlace(int id)
         {
             Place place = await db.Places.FindAsync(id);
             if (place == null)
@@ -38,7 +38,7 @@ namespace SmartParkApi.Controllers
 
         // PUT: api/Places/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutPlace(long id, Place place)
+        public async Task<IHttpActionResult> PutPlace(int id, Place place)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SmartParkApi.Controllers
 
         // DELETE: api/Places/5
         [ResponseType(typeof(Place))]
-        public async Task<IHttpActionResult> DeletePlace(long id)
+        public async Task<IHttpActionResult> DeletePlace(int id)
         {
             Place place = await db.Places.FindAsync(id);
             if (place == null)
@@ -111,7 +111,7 @@ namespace SmartParkApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool PlaceExists(long id)
+        private bool PlaceExists(int id)
         {
             return db.Places.Count(e => e.PlaceId == id) > 0;
         }

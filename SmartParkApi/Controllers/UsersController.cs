@@ -38,7 +38,7 @@ namespace SmartParkApi.Controllers
 
         // GET: api/Users/5
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> GetUser(long id)
+        public async Task<IHttpActionResult> GetUser(int id)
         {
             User user = await db.Users.FindAsync(id);
             if (user == null)
@@ -51,7 +51,7 @@ namespace SmartParkApi.Controllers
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutUser(long id, User user)
+        public async Task<IHttpActionResult> PutUser(int id, User user)
         {
             if (!ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace SmartParkApi.Controllers
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> DeleteUser(long id)
+        public async Task<IHttpActionResult> DeleteUser(int id)
         {
             User user = await db.Users.FindAsync(id);
             if (user == null)
@@ -124,7 +124,7 @@ namespace SmartParkApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool UserExists(long id)
+        private bool UserExists(int id)
         {
             return db.Users.Count(e => e.UserId == id) > 0;
         }

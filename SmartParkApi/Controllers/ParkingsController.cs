@@ -25,7 +25,7 @@ namespace SmartParkApi.Controllers
 
         // GET: api/Parkings/5
         [ResponseType(typeof(Parking))]
-        public async Task<IHttpActionResult> GetParking(long id)
+        public async Task<IHttpActionResult> GetParking(int id)
         {
             Parking parking = await db.Parkings.FindAsync(id);
             if (parking == null)
@@ -38,7 +38,7 @@ namespace SmartParkApi.Controllers
 
         // PUT: api/Parkings/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutParking(long id, Parking parking)
+        public async Task<IHttpActionResult> PutParking(int id, Parking parking)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SmartParkApi.Controllers
 
         // DELETE: api/Parkings/5
         [ResponseType(typeof(Parking))]
-        public async Task<IHttpActionResult> DeleteParking(long id)
+        public async Task<IHttpActionResult> DeleteParking(int id)
         {
             Parking parking = await db.Parkings.FindAsync(id);
             if (parking == null)
@@ -111,7 +111,7 @@ namespace SmartParkApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ParkingExists(long id)
+        private bool ParkingExists(int id)
         {
             return db.Parkings.Count(e => e.ParkingId == id) > 0;
         }

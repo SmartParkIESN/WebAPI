@@ -11,11 +11,9 @@ namespace Model
     public class Reporting
     {
         [Key]
-        public long ReportingId { get; set; }
+        public int ReportingId { get; set; }
         [Required]
         public DateTime Date { get; set; }
-        public long AnnouncementId { get; set; }
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
+        public int AnnouncementId { get; set; }
     }
 }

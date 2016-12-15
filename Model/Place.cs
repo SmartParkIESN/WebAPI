@@ -10,12 +10,9 @@ namespace Model
     public class Place
     {
         [Key]
-        public long PlaceId { get; set; }
+        public int PlaceId { get; set; }
         [Required]
         public string Name { get; set; }
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
-        public ICollection<Parking> Parkings { get; set; }
 
     }
 }

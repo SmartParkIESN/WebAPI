@@ -29,7 +29,7 @@ namespace Model.Tests
         {
             using (var context = GetContext())
             {
-                Assert.AreEqual(2, context.Users.ToList().Count);
+                Assert.AreEqual(3, context.Users.ToList().Count);
             }
         }
     }
