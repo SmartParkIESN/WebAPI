@@ -13,6 +13,7 @@ using Model;
 
 namespace SmartParkApi.Controllers
 {
+    [RoutePrefix("api/Announcements")]
     public class AnnouncementsController : ApiController
     {
         private SmartParkContext db = new SmartParkContext();
@@ -20,20 +21,28 @@ namespace SmartParkApi.Controllers
         // GET: api/Announcements
         public IQueryable<Announcement> GetAnnoucements()
         {
-            return db.Annoucements;
+            return db.Annoucements.Include(p => p.parking).Include(u => u.parking.user).Include(pl => pl.parking.place);
         }
 
-        // GET: api/Announcements/5
-        [ResponseType(typeof(Announcement))]
-        public async Task<IHttpActionResult> GetAnnouncement(int id)
+        // GET: api/Announcements/user/IDUSER
+        [Route("user/{idUser}")]
+        public IQueryable<Announcement> GetAnnoucementsPseudo(int idUser)
         {
-            Announcement announcement = await db.Annoucements.FindAsync(id);
-            if (announcement == null)
-            {
-                return NotFound();
-            }
+            return db.Annoucements.Include(p => p.parking).Include(u => u.parking.user).Include(pl => pl.parking.place).Where(p => p.parking.user.UserId == idUser);
+        }
 
-            return Ok(announcement);
+        // GET: api/Announcements/parking/IDPARKING
+        [Route("parking/{idParking}")]
+        public IQueryable<Announcement> GetAnnoucementsParking(int idParking)
+        {
+            return db.Annoucements.Include(p => p.parking).Include(u => u.parking.user).Include(pl => pl.parking.place).Where(u => u.parking.ParkingId == idParking);
+        }
+
+        // GET: api/Announcements/ID
+        [Route("{id}")]
+        public IQueryable<Announcement> GetAnnoucementId(int id)
+        {
+            return db.Annoucements.Include(p => p.parking).Include(u => u.parking.user).Include(pl => pl.parking.place).Where(a => a.AnnouncementId == id);
         }
 
         // PUT: api/Announcements/5

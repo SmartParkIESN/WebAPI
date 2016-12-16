@@ -13,6 +13,7 @@ using Model;
 
 namespace SmartParkApi.Controllers
 {
+    [RoutePrefix("api/Users")]
     public class UsersController : ApiController
     {
         private SmartParkContext db = new SmartParkContext();
@@ -23,7 +24,8 @@ namespace SmartParkApi.Controllers
             return db.Users;
         }
 
-        // GET: api/Users?pseudo=PSEUDO
+        // GET: api/Users/PSEUDO
+        [Route("{pseudo}")]
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> GetUserPseudo(String pseudo)
         {

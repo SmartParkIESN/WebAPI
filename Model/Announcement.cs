@@ -23,5 +23,7 @@ namespace Model
         [Required]
         public Boolean Rented { get; set; }
         public int ParkingId { get; set; }
+        [ForeignKey("ParkingId")]
+        public Parking parking { get; set; }
     }
 }

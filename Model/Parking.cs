@@ -26,6 +26,10 @@ namespace Model
         [Required]
         public double Latitude { get; set; }
         public int PlaceId { get; set; }
-        public int UserId { get; set; }   
+        public int UserId { get; set; }
+        [ForeignKey("PlaceId")]
+        public Place place { get; set; }
+        [ForeignKey("UserId")]
+        public User user { get; set; }
     }
 }

@@ -15,5 +15,7 @@ namespace Model
         [Required]
         public DateTime Date { get; set; }
         public int AnnouncementId { get; set; }
+        [ForeignKey("AnnouncementId")]
+        public Announcement announcement { get; set; }
     }
 }
