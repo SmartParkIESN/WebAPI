@@ -25,7 +25,7 @@ namespace SmartParkApi.Controllers
         }
 
         // GET: api/Users/PSEUDO
-        [Route("{pseudo}")]
+        [Route("pseudo/{pseudo}")]
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> GetUserPseudo(String pseudo)
         {

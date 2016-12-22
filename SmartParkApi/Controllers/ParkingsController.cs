@@ -13,6 +13,7 @@ using Model;
 
 namespace SmartParkApi.Controllers
 {
+    [RoutePrefix("api/Parkings")]
     public class ParkingsController : ApiController
     {
         private SmartParkContext db = new SmartParkContext();
@@ -23,17 +24,11 @@ namespace SmartParkApi.Controllers
             return db.Parkings;
         }
 
-        // GET: api/Parkings/5
-        [ResponseType(typeof(Parking))]
-        public async Task<IHttpActionResult> GetParking(int id)
+        // GET: api/Announcements/ID
+        [Route("{id}")]
+        public IQueryable<Parking> GetParkingId(int id)
         {
-            Parking parking = await db.Parkings.FindAsync(id);
-            if (parking == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(parking);
+            return db.Parkings.Include(u => u.user).Include(p => p.place).Where(a => a.ParkingId == id);
         }
 
         // PUT: api/Parkings/5

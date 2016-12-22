@@ -96,6 +96,7 @@ namespace SmartParkApi.Controllers
         }
 
         // DELETE: api/Announcements/5
+        [Route("delete/{id}")]
         [ResponseType(typeof(Announcement))]
         public async Task<IHttpActionResult> DeleteAnnouncement(int id)
         {
