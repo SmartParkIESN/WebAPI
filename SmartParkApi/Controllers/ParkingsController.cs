@@ -24,11 +24,17 @@ namespace SmartParkApi.Controllers
             return db.Parkings;
         }
 
-        // GET: api/Announcements/ID
-        [Route("{id}")]
+        // GET: api/Parkings/ID
         public IQueryable<Parking> GetParkingId(int id)
         {
             return db.Parkings.Include(u => u.user).Include(p => p.place).Where(a => a.ParkingId == id);
+        }     
+
+        // GET: api/Parkings/User/ID
+        [Route("user/{id}")]
+        public IQueryable<Parking> GetParkingUser(int id)
+        {
+            return db.Parkings.Include(u => u.user).Include(p => p.place).Where(a => a.UserId == id);
         }
 
         // PUT: api/Parkings/5
@@ -81,17 +87,21 @@ namespace SmartParkApi.Controllers
             return CreatedAtRoute("DefaultApi", new { id = parking.ParkingId }, parking);
         }
 
-        // DELETE: api/Parkings/5
+        // DELETE: api/Parkings/delete/5
         [ResponseType(typeof(Parking))]
         public async Task<IHttpActionResult> DeleteParking(int id)
         {
+
             Parking parking = await db.Parkings.FindAsync(id);
             if (parking == null)
             {
                 return NotFound();
             }
 
+            db.Annoucements.RemoveRange(db.Annoucements.Where(a => a.ParkingId == parking.ParkingId));
+
             db.Parkings.Remove(parking);
+
             await db.SaveChangesAsync();
 
             return Ok(parking);
