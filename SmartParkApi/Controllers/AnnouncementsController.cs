@@ -31,6 +31,13 @@ namespace SmartParkApi.Controllers
             return db.Annoucements.Include(p => p.parking).Include(u => u.parking.user).Include(pl => pl.parking.place).Where(p => p.parking.user.UserId == idUser);
         }
 
+        // GET: api/Announcements/price/MIN/MAX
+        [Route("price/{min}/{max}")]
+        public IQueryable<Announcement> GetAnnoucementsPrice(int min, int max)
+        {
+            return db.Annoucements.Include(p => p.parking).Include(u => u.parking.user).Include(pl => pl.parking.place).Where(a => a.Price >= min).Where(a => a.Price <= max);
+        }
+
         // GET: api/Announcements/parking/IDPARKING
         [Route("parking/{idParking}")]
         public IQueryable<Announcement> GetAnnoucementsParking(int idParking)

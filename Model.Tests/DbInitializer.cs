@@ -19,7 +19,7 @@ namespace Model.Tests
                 UserId = 1,
                 Pseudo = "SkyLi7h",
                 Email = "SkyLi7h@gmail.com",
-                Password = "123456789",
+                Password = "098f6bcd4621d373cade4e832627b4f6",
                 PhoneNumber = "0496893327"                                             
             };
             context.Users.Add(user);
@@ -29,7 +29,7 @@ namespace Model.Tests
                 UserId = 2,
                 Pseudo = "Tom",
                 Email = "Tom@gmail.com",
-                Password = "987654321",
+                Password = "098f6bcd4621d373cade4e832627b4f6",
                 PhoneNumber = "0496871236"
             };
             context.Users.Add(user2);
@@ -39,7 +39,7 @@ namespace Model.Tests
                 UserId = 3,
                 Pseudo = "test",
                 Email = "test@gmail.com",
-                Password = "test",
+                Password = "098f6bcd4621d373cade4e832627b4f6",
                 PhoneNumber = "0496871236"
             };
             context.Users.Add(user3);
